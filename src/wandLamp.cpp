@@ -66,7 +66,7 @@
 #define SW1               PIN_PB1
 #define SW2               PIN_PB2
 #define YELLOW_LED        PIN_PB4
-#define NUMLEDS            10 
+#define NUMLEDS            30 
 #define MAXCOLORS          11
 #define MAXBRIGHT         255
 #define MINBRIGHT          20
@@ -288,7 +288,7 @@ void handleSW2()
   while(PIN_READ(B, SW2)) 
   {
     eepromData.ledsColor++;
-    if (eepromData.ledsColor > MAXCOLORS) eepromData.ledsColor = 0;
+    if (eepromData.ledsColor >= MAXCOLORS) eepromData.ledsColor = 0;
     setColor(eepromData.ledsColor);
     if (PIN_READ(B, SW2)) {delay(500);}
   }
